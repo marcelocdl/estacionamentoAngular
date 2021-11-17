@@ -1,6 +1,22 @@
 # EstacionamentoAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10.
+## Descrição do Projeto
+<p align="center">Projeto construído para a disciplina de PROGRAMAÇÃO ORIENTADA A OBJETOS PARA WEB II.</p>
+<p align="center">O projeto consiste em criar um sistema para gerenciamento de um estacionamento. Onde é possível cadastrar clientes e seus veículos, podendo também manipular os dados já inseridos (deletar ou editar), e também cadastrar a estadia do veículo no estacionamento.</p>
+
+<h4 align="center"> 
+	🚧  Status: Em construção...  🚧
+</h4>
+
+
+### 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Angular](https://angular.io/)
+- [Node.js](https://nodejs.org/en/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [BootStrap](https://getbootstrap.com/)
 
 ## Development server
 

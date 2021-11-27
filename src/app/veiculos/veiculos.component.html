@@ -1,1 +1,80 @@
-<p>veiculos works!</p>
+<!-- <div class="container">
+
+    <div class="card mt-3">
+        <div class="card-header">
+            <div class="float-left">
+                <h4>Veiculos</h4>
+            </div>
+            <div class="float-right">
+                <button type="button" class="btn btn-primary" [routerLink]="['cadastrar']">Novo Veiculo</button>
+            </div>
+        </div>        
+    </div>
+
+    <div class="row gx-5">
+        <div class="col col-lg">
+            <h5>
+                Placas:
+            </h5>              
+            <ul class="list-group">
+                <li class="list-group-item"
+                  [ngClass]="{'active': selectedItem == veiculo}"
+                  (click)="listClick($event, veiculo)"
+                  *ngFor="let veiculo of veiculos"
+                  [routerLink]="[veiculo.id]">{{ veiculo.placa }}</li>
+                </ul>
+        </div>
+        <div class="col col-6 p-2">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div> -->
+
+<div class="card mt-3">
+    <div class="card-header">
+        <div class="float-left">
+            <h4>Veiculos</h4>
+        </div>
+        <div class="float-right">
+            <button type="button" class="btn btn-primary" (click)="cadastrarVeiculo()" >Novo Veiculo</button>
+        </div>
+        </div>
+
+    <div class="card-body">        
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Placa</th>
+                <th>Modelo</th>
+                <th>Cor</th>
+                <th>Tipo</th>
+                <th>Proprietário</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let veiculo of veiculos">
+                <td>{{ veiculo.id }}</td>
+                <td>{{ veiculo.placa }}</td>
+                <td>{{ veiculo.modelo }}</td>
+                <td>{{ veiculo.cor }}</td>
+                <td>{{ veiculo.tipo }}</td>
+                <td>{{ veiculo.cliente }}</td>
+                <td>
+                <span class="float-right">
+                    <button class="btn btn-outline-warning mb-1 btn-sm" (click)="editarVeiculo(veiculo.id)">
+                    Atualizar
+                    </button>
+
+                    <button class="btn btn-outline-danger mb-1 btn-sm" (click)="removerVeiculo(veiculo.id)">
+                    Remover
+                    </button>
+                </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

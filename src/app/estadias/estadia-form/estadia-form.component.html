@@ -1,1 +1,50 @@
-<p>estadia-form works!</p>
+<h5>
+    Criar/Editar Estadia 
+</h5>
+
+<p>Vaga: {{ vaga }}</p>
+
+<form #f="ngForm">
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input disabled type="text" class="form-control" name="id"
+      id="id" placeholder="id" [(ngModel)]="estadia.id">
+  </div>
+
+  <div class="form-group">
+    <label for="data">Data</label>
+    <input type="date" class="form-control" name="data"
+      id="data" placeholder="Data da entrada" [(ngModel)]="estadia.data">
+  </div>
+
+  <div class="form-group">
+    <label for="hrEntrada">Hora da entrada</label>
+    <input type="time" class="form-control" name="hrEntrada"
+      id="hrEntrada" [(ngModel)]="estadia.hrEntrada">
+  </div>
+
+  <div class="form-group">
+    <label for="hrSaida">Hora da saida</label>
+    <input type="time" class="form-control" name="hrSaida"
+      id="hrSaida" [(ngModel)]="estadia.hrSaida">
+  </div>
+  
+  <div class="form-group">
+    <label for="placa">Placa do veiculo</label>
+    <input type="text" class="form-control" name="placa"
+      id="placa" placeholder="Placa do Veiculo" [(ngModel)]="estadia.veiculo">
+  </div>
+
+  <div class="form-group">
+    <label for="vaga">Número da vaga</label>
+    <input type="number" class="form-control" name="vaga"
+      id="vaga" min="1" max="25" [(ngModel)]="estadia.vaga">
+  </div>
+
+  <div class="float-left">
+    <button type="submit" class="btn btn-success">Salvar</button>
+  </div>
+  <div class="float-left" style="margin-left: 10px;">
+    <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>

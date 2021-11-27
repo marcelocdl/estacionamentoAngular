@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
-import { EstadiaDetalheComponent } from "./estadia-detalhe/estadia-detalhe.component";
 import { EstadiaFormComponent } from "./estadia-form/estadia-form.component";
 import { EstadiasRoutingModule } from "./estadias.routing.module";
 
@@ -9,11 +9,11 @@ import { EstadiasRoutingModule } from "./estadias.routing.module";
 @NgModule({
     declarations: [
         EstadiaFormComponent,
-        EstadiaDetalheComponent
     ],
     imports: [
         CommonModule,
-        EstadiasRoutingModule
+        EstadiasRoutingModule,
+        FormsModule
     ]
 })
 

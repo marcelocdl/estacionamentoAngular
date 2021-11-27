@@ -1,1 +1,47 @@
-<p>estadias works!</p>
+<div class="card mt-3">
+    <div class="card-header">
+        <div class="float-left">
+            <h4>Estadias</h4>
+        </div>
+        <div class="float-right">
+            <button type="button" class="btn btn-primary" (click)="cadastrarEstadia()" >Nova Estadia</button>
+        </div>
+        </div>
+
+    <div class="card-body">        
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Data</th>
+                <th>Horário Entrada</th>
+                <th>Horário Saida</th>
+                <th>Veiculo</th>
+                <th>Vaga</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let estadia of estadias">
+                <td>{{ estadia.id }}</td>
+                <td>{{ estadia.data }}</td>
+                <td>{{ estadia.hrEntrada }}</td>
+                <td>{{ estadia.hrSaida }}</td>
+                <td>{{ estadia.veiculo }}</td>
+                <td>{{ estadia.vaga }}</td>
+                <td>
+                <span class="float-right">
+                    <button class="btn btn-outline-warning mb-1 btn-sm" (click)="editarEstadia(estadia.id)">
+                    Atualizar
+                    </button>
+
+                    <button class="btn btn-outline-danger mb-1 btn-sm" (click)="removerEstadia(estadia.id)">
+                    Remover
+                    </button>
+                </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+
+<div class="container">
+    <h5>
+      Editar Cliente
+    </h5>
+  
+  
+  <form [formGroup]="formCliente" (ngSubmit)="salvar()">
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input type="number" class="form-control" [attr.disabled]="cliente ? '' : null"
+        id="id" [(ngModel)]="cliente.id" formControlName="id">
+    </div>
+  
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input type="text" class="form-control"
+        id="nome" [(ngModel)]="cliente.nome" formControlName="nome">
+    </div>
+  
+    <div class="form-group">
+      <label for="cpf">CPF</label>
+      <input type="text" class="form-control" 
+        id="cpf" [(ngModel)]="cliente.cpf" formControlName="cpf">
+    </div>
+  
+    <div *ngIf="msg" class="alert alert-success" role="alert">
+      {{msg}}
+    </div>
+  
+    <div class="float-left">
+      <button type="submit" class="btn btn-success">Salvar</button>
+    </div>
+    <div class="float-left" style="margin-left: 10px;">
+      <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+    </div>
+  
+  
+  </form>
+</div>
+  

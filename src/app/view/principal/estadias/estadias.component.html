@@ -1,0 +1,43 @@
+<div class="card mt-3">
+    <div class="card-header">
+        <div class="float-left">
+            <h4>Estadias</h4>
+        </div>
+        <div class="float-right">
+            <button type="button" class="btn btn-primary" [routerLink]="['cadastrar']" routerLinkActive="router-link-active"  >Nova Estadia</button>
+        </div>
+        </div>
+
+    <div class="card-body">        
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Data</th>
+                <th>Horário Entrada</th>
+                <th>Horário Saida</th>
+                <th>Veiculo</th>
+                <th>Vaga</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let estadia of estadias">
+                <td>{{ estadia.id }}</td>
+                <td>{{ estadia.data }}</td>
+                <td>{{ estadia.hr_entrada }}</td>
+                <td>{{ estadia.hr_saida }}</td>
+                <td>{{ estadia.veiculo?.placa }}</td>
+                <td>{{ estadia.vaga?.numVaga }}</td>
+                <td>
+                <span class="float-right" *ngIf="estadia.hr_saida == null">
+                    <button class="btn btn-outline-warning mb-1 btn-sm" [routerLink]="[estadia.id, 'editar']" routerLinkActive="router-link-active" >
+                    Registrar Saida
+                    </button>
+                </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

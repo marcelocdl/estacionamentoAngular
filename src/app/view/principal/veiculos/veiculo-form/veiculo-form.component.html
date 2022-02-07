@@ -1,0 +1,55 @@
+<div class="container" style="margin-bottom: 100px;">
+
+<h5>
+    Cadastrar Veiculo 
+</h5>
+
+<form [formGroup]="formVeiculo" (ngSubmit)="cadastrar()">
+  
+  <div class="form-group">
+    <label for="placa">Placa</label>
+    <input type="text" class="form-control" formControlName="placa"
+      id="placa" placeholder="Placa do Veiculo" >
+  </div>
+
+  <div class="form-group">
+    <label for="modelo">Modelo</label>
+    <input type="text" class="form-control" formControlName="modelo"
+      id="modelo" placeholder="Modelo do Veiculo">
+  </div>
+
+  <div class="form-group">
+    <label for="cor">Cor</label>
+    <input type="text" class="form-control" formControlName="cor"
+      id="cor" placeholder="Cor do Veiculo">
+  </div>
+  
+  <div class="form-group">
+    <label for="tipo">Selecione o Tipo do Veículo</label>
+    <select class="form-control" id="tipo" formControlName="tipo">
+      <option *ngFor='let tip of tipos' [selected]="tip === tip" 
+      [value]="tip.cod_tipo">{{tip.descricao}}</option>    
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="codCliente">Selecione o Proprietário</label>
+    <select class="form-control" id="codCliente" formControlName="codCliente">
+      <option *ngFor='let cli of clientes' [selected]="cli === cli" 
+      [value]="cli.id">{{cli.nome}}</option>    
+    </select>
+  </div>
+
+  <div *ngIf="msg" class="alert alert-success" role="alert">
+    {{msg}}
+  </div>
+
+  <div class="float-left">
+    <button type="submit" class="btn btn-success">Salvar</button>
+  </div>
+  <div class="float-left" style="margin-left: 10px;">
+    <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>
+
+</div> 

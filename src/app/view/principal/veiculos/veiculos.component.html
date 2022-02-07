@@ -1,0 +1,50 @@
+<div class="card mt-3">
+    <div class="card-header">
+        <div class="float-left">
+            <h4>Veiculos</h4>
+        </div>
+        <div class="float-right">
+            <button type="button" class="btn btn-primary" (click)="cadastrarVeiculo()" >Novo Veiculo</button>
+        </div>
+        </div>
+
+    <div class="card-body">        
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Placa</th>
+                <th>Modelo</th>
+                <th>Cor</th>
+                <th>Tipo</th>
+                <th>Proprietário</th> 
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let veiculo of veiculos; index as i">
+                <td>{{ veiculo.id }}</td>
+                <td>{{ veiculo.placa }}</td>
+                <td>{{ veiculo.modelo }}</td>
+                <td>{{ veiculo.cor }}</td>
+                <td>{{ veiculo?.tipo?.descricao }}</td>
+                <td>{{ veiculo?.cliente?.nome }}</td>
+                <td>
+                <span class="float-right">
+                    <button class="btn btn-outline-warning mb-1 btn-sm" 
+                    [routerLink]="[veiculo.id, 'editar']" routerLinkActive="router-link-active">
+                    Atualizar
+                    </button>
+
+                    <button class="btn btn-outline-danger mb-1 btn-sm"
+                    (click)="removerVeiculo(veiculo.id)">
+                    Remover
+                    </button>
+                </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

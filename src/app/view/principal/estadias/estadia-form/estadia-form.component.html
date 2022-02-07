@@ -1,0 +1,53 @@
+<div class="container">
+
+<h5>
+    Criar Estadia  
+</h5>
+
+<form [formGroup]="formEstadia" (ngSubmit)="cadastrar()">
+
+  <div class="form-group">
+    <label for="hrEntrada">Hora da entrada</label>
+    <input type="time" class="form-control" formControlName="hrEntrada"
+      id="hrEntrada">
+  </div>
+
+  <!--<div class="form-group">
+    <label for="hrSaida">Hora da saida</label>
+    <input type="time" class="form-control" name="hrSaida"
+      id="hrSaida">
+  </div> -->
+  
+  <!--div class="form-group">
+    <label for="codVeiculo">Código do veiculo</label>
+    <input type="number" class="form-control" formControlName="codVeiculo"
+      id="codVeiculo" placeholder="Codigo do Veiculo">
+  </div-->
+  
+  <div class="form-group">
+    <label for="codCliente">Selecione o Veículo</label>
+    <select class="form-control" id="codVeiculo" formControlName="codVeiculo">
+      <option *ngFor='let vei of veiculos' [selected]="vei === vei" 
+      [value]="vei.id">{{vei.placa}}</option>    
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="vaga">Número da vaga</label>
+    <input type="number" class="form-control" formControlName="vaga"
+      id="vaga" min="1" max="25" [(ngModel)]="vaga">
+  </div>
+
+  <div *ngIf="msg" class="alert alert-success" role="alert">
+    {{msg}}
+  </div>
+
+  <div class="float-left">
+    <button type="submit" class="btn btn-success">Salvar</button>
+  </div>
+  <div class="float-left" style="margin-left: 10px;">
+    <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>
+
+</div>

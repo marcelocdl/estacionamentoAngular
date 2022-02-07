@@ -1,0 +1,55 @@
+<div class="card mt-3">
+    <div class="card-header">
+        <div class="float-left">
+            <h4>Clientes</h4>
+        </div>
+        <div class="float-right">
+            <button type="button" class="btn btn-primary" [routerLink]="['cadastrar']">Novo Cliente</button>
+        </div>
+    </div>
+ 
+    <div class="card-body">
+        
+        <!--<div class="col col-lg">
+            <div class="container">
+                <ul class="list-group">
+                    <li class="list-group-item"
+                        [ngClass]="{'active': selectedItem == cliente}"
+                        (click)="listClick($event, cliente)"
+                        *ngFor="let cliente of clientes"
+                        [routerLink]="[cliente.id]">{{ cliente.nome }}</li>
+                </ul>
+            </div>
+        </div> -->
+        
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>#Código</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cliente of clientes; index as i">
+                <th>{{ cliente.id }}</th>
+                <th>{{ cliente.nome }}</th>
+                <th>{{ cliente.cpf }}</th>
+                <td>
+                <span class="float-right">
+                    <button class="btn btn-outline-warning mb-1 btn-sm" 
+                        [routerLink]="[cliente.id, 'editar']" routerLinkActive="router-link-active">
+                    Atualizar
+                    </button>
+
+                    <button class="btn btn-outline-danger mb-1 btn-sm" (click)="removerCliente(cliente.id)">
+                    Remover
+                    </button>
+                </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

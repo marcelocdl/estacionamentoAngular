@@ -1,39 +1,37 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HomeComponent } from './home/home.component';
-import { VeiculosComponent } from './veiculos/veiculos.component';
-
-import { EstadiasComponent } from './estadias/estadias.component';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
-import { ClientesModule } from './clientes/clientes.module';
-import { VeiculosModule } from './veiculos/veiculos.module';
-import { EstadiasModule } from './estadias/estadias.module';
-import { ClientesComponent } from './clientes/clientes.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { LoginComponent } from './view/login/login.component';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ErrorhandlerService } from './core/service/errorhandler.service';
+import { JwtInterceptorService } from './core/service/jwt-interceptor.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClientesComponent,
-    HomeComponent,
-    VeiculosComponent,
-    EstadiasComponent,
+    LoginComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
-    ClientesModule,
-    VeiculosModule,
-    EstadiasModule,
     NgbModule,
-    FormsModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi:true},
+    {provide: ErrorHandler, useClass: ErrorhandlerService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

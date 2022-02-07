@@ -1,0 +1,30 @@
+<div class="container">
+<h5>
+    Editar Estadia 
+</h5>
+
+<form [formGroup]="formEstadia" (ngSubmit)="salvar()">
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input type="number" class="form-control" [attr.disabled]="estadia ? '' : null"
+      id="id" formControlName="id" [(ngModel)]="estadia.id">
+  </div>
+
+  <div class="form-group">
+    <label for="hrSaida">Hora da saida</label>
+    <input type="time" class="form-control" formControlName="hrSaida"
+      id="hrSaida" [(ngModel)]="estadia.hr_saida">
+  </div>
+
+  <div *ngIf="msg" class="alert alert-success" role="alert">
+    {{msg}}
+  </div>
+
+  <div class="float-left">
+    <button type="submit" class="btn btn-success">Salvar</button>
+  </div>
+  <div class="float-left" style="margin-left: 10px;">
+    <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>
+</div>

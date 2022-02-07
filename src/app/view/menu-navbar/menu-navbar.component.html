@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Estacionamento</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" routerLinkActive="active" aria-current="page" [routerLink]="['/principal/home']">Home</a>
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['clientes']" routerLinkActive="router-link-active">Clientes</a>
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['veiculos']" routerLinkActive="router-link-active">Veiculos</a>
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['estadias']" routerLinkActive="router-link-active">Estadias</a>
+        </div>
+        <ul class="navbar-nav">
+          <li (click)="logout()" class="nav-item" style="cursor: pointer;">
+            <a routerLinkActive="active" class="nav-link">LOGOUT</a>
+          </li>
+        </ul>
+      </div>
+
+      <!--ul class="navbar-nav">
+        <li routerLink="clientes" class="nav-item" style="cursor: pointer;">
+           <a routerLinkActive="active" class="nav-link">Clientes</a>
+        </li>
+        <li routerLink="veiculos" class="nav-item" style="cursor: pointer;">
+           <a routerLinkActive="active" class="nav-link">Produtos</a>
+        </li>
+        <li routerLink="estadias" class="nav-item" style="cursor: pointer;">
+           <a routerLinkActive="active" class="nav-link">Pedidos</a>
+        </li>
+     </ul--> 
+
+    </div>
+  </nav>

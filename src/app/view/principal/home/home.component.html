@@ -1,0 +1,28 @@
+<h3 class="display-5 text-center">Vagas</h3>
+
+<div id="home" class="car-park">
+    <ul class="showcase">
+        <li>
+          <div class="legenda livre"></div>
+          <small>Disponível</small>
+        </li>
+        <li>
+          <div class="legenda ocupada"></div>
+          <small>Ocupado</small>
+        </li>
+    </ul>
+
+    <div class="vagas" *ngFor="let vaga of vagas">
+        <div [ngClass]="(vaga.ocupado)?'vagas ocupada':'vagas livre'">
+            <a [routerLink]="['/principal/estadias/cadastrar']" 
+                routerLinkActive="router-link-active"
+                [queryParams]="{vaga: vaga.numVaga}">
+                <div>
+                    {{vaga.numVaga}}
+                </div>                    
+            </a>
+        </div>
+        
+    </div>
+
+</div>
